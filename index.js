@@ -31,7 +31,7 @@ let auth=((req,res,next)=>{
     // }else{
     //     res.sendStatus(401); // 401 unauthorised status
     // }
-    nexft()
+    next()
 });
 let auth2=((req,res,next)=>{
     console.log(req.query.password);
@@ -53,15 +53,6 @@ server.delete('/',(req,res)=>{
 server.patch('/',(req,res)=>{
     res.json({type:'PATCH'});
 });
-
-
-
-
-
-
-
-
-
 server.get('/demo',(req,res)=>
 {
     //res.sendStatus(404);

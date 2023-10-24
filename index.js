@@ -74,11 +74,12 @@ server.patch('/products/:id',(req,res)=>{
     res.status(201).json()
 });
 
-
-
-
-server.delete('/',(req,res)=>{
-    res.json({type:'DELETE'});
+server.delete('/products/:id',(req,res)=>{
+    const id = +req.params.id;
+    const productIndex = data.findIndex(p=>p.id===id);
+    const singleProduct=data[productIndex]
+    data.splice(productIndex,1);
+    res.status(201).json('Product delete :'+singleProduct);
 });
 
 server.get('/demo',(req,res)=>
